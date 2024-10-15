@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="Lab2Indvidual.UWP.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:forms="using:Xamarin.Forms.Platform.UWP"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="Авторизация" FontSize="24" Margin="0,0,0,20"/>
+            <TextBox x:Name="usernameTextBox" PlaceholderText="Логин" Margin="0,0,0,10"/>
+            <PasswordBox x:Name="passwordTextBox" PlaceholderText="Пароль" Margin="0,0,0,10" />
+            <Button Content="Войти" Click="OnLoginButtonClick" Margin="0,0,0,20"/>
+        </StackPanel>
+    </Grid>
+</Page>

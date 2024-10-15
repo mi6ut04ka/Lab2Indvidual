@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Lab2Indvidual.UWP.PositionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab2Indvidual.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
+        <StackPanel Loaded="PositionPage_Loaded">
+            <TextBlock Text="Управление должностями" FontSize="24" Margin="0,0,0,20"/>
+            <TextBox x:Name="positionTextBox" PlaceholderText="Введите новую должность" Margin="0,0,0,10"/>
+            <Button Content="Добавить должность" Click="OnAddPositionClick" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+            <ListView x:Name="positionsListView" ItemsSource="{Binding Positions}" Margin="0,20,0,0" IsItemClickEnabled="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" VerticalAlignment="Center" Width="200" Margin="0,0,10,0"/>
+                            <Button Content="Редактировать" Click="OnEditPositionClick" Tag="{Binding}" Margin="0,0,10,0"/>
+                            <Button Content="Удалить" Click="OnDeletePositionClick" Tag="{Binding}" Background="Red"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Content="Назад" Click="OnBackButtonClick" HorizontalAlignment="Left" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>

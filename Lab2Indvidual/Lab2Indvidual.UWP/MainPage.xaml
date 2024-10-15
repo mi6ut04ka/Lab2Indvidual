@@ -1,0 +1,19 @@
+﻿<forms:WindowsPage
+    x:Class="Lab2Indvidual.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:forms="using:Xamarin.Forms.Platform.UWP"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab2Indvidual.UWP"
+    xmlns:controls="using:Windows.UI.Xaml.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page Loaded="Page_Loaded">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Главная страница" FontSize="24" Margin="0,0,0,20"/>
+            <Button x:Name="positionsButton" Content="Работники" Click="OnEmployeesButtonClick" Margin="0,0,0,10"/>
+            <Button x:Name="employeesButton" Content="Должности" Click="OnPositionsButtonClick" Margin="0,0,0,10"/>
+            <Button x:Name="logoutButton" Content="Выход" Click="LogoutButton_Click" />
+        </StackPanel>
+    </Page>
+
+</forms:WindowsPage>

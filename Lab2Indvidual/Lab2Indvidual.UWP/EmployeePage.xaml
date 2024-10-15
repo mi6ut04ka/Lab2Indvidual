@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="Lab2Indvidual.UWP.EmployeePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab2Indvidual.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
+        <StackPanel Loaded="EmployeePage_Loaded">
+            <TextBlock Text="Управление сотрудниками" FontSize="24" Margin="0,0,0,20"/>
+            <TextBox x:Name="fullNameTextBox" PlaceholderText="Фамилия и инициалы" Margin="0,0,0,10"/>
+            <ComboBox x:Name="positionComboBox" PlaceholderText="Должность" Margin="0,0,0,10" ItemsSource="{Binding Positions}"/>
+            <TextBox x:Name="yearOfJoiningTextBox" PlaceholderText="Год поступления" Margin="0,0,0,10"/>
+            <TextBox x:Name="salaryTextBox" PlaceholderText="Оклад" Margin="0,0,0,10"/>
+            <Button Content="Добавить сотрудника" Click="OnAddEmployeeClick" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+            <TextBlock Text="Поиск сотрудника по фамилии" FontSize="18" Margin="0,20,0,10"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="searchTextBox" PlaceholderText="Введите фамилию" Width="200" Margin="0,0,10,0"/>
+                <Button Content="Поиск" Click="OnSearchEmployeeClick"/>
+            </StackPanel>
+            <ListView x:Name="employeesListView" ItemsSource="{Binding Employees}" Margin="0,20,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FullName}" VerticalAlignment="Center" Width="150" Margin="0,0,10,0"/>
+                            <TextBlock Text="{Binding Position}" VerticalAlignment="Center" Width="150" Margin="0,0,10,0"/>
+                            <TextBlock Text="{Binding YearOfJoining}" VerticalAlignment="Center" Width="100" Margin="0,0,10,0"/>
+                            <TextBlock Text="{Binding Salary}" VerticalAlignment="Center" Width="100" Margin="0,0,10,0"/>
+                            <Button Content="Редактировать" Click="OnEditEmployeeClick" Tag="{Binding}" Margin="0,0,10,0"/>
+                            <Button Content="Удалить" Click="OnDeleteEmployeeClick" Tag="{Binding}" Background="Red"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Выгрузка списка сотрудников" FontSize="18" Margin="0,20,0,10"/>
+            <ComboBox x:Name="exportConditionComboBox" PlaceholderText="Выберите условие для выгрузки" SelectionChanged="OnExportConditionChanged" Margin="0,0,0,10">
+                <ComboBoxItem Content="Весь список" Tag="All"/>
+                <ComboBoxItem Content="Фамилия начинается с" Tag="StartsWith"/>
+                <ComboBoxItem Content="Оклад больше" Tag="SalaryGreaterThan"/>
+            </ComboBox>
+            <TextBox x:Name="exportConditionValueTextBox" PlaceholderText="Введите значение условия" Margin="0,0,0,10" Visibility="Collapsed"/>
+            <Button Content="Выгрузить в файл" Click="OnExportToFileClick" Margin="0,0,0,10"/>
+            <Button Content="Назад" Click="OnBackButtonClick" HorizontalAlignment="Left" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>
